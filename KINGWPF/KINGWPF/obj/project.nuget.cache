@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "q+mY5i7b9ZNJ8r+j9wPHUSms+abC7duSPXwBfHnRS2ZzJvlurDJz9pV0cVMxMP9nxgsrofBvmt4pQKg0mOFChA==",
+  "success": true,
+  "projectFilePath": "D:\\WS\\EGS\\KINGWPF\\KINGWPF\\KINGWPF.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Егор\\.nuget\\packages\\wpfanimatedgif\\2.0.2\\wpfanimatedgif.2.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

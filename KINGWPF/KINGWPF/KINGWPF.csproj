@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Images\auth\pass.png" />
+    <None Remove="Resources\Images\auth\user.png" />
+    <None Remove="Resources\Images\icon.png" />
+    <None Remove="Resources\Images\loading.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\Fonts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\auth\back.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\auth\pass.png" />
+    <Resource Include="Resources\Images\auth\user.png" />
+    <Resource Include="Resources\Images\icon.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    
+  </ItemGroup>
+
+	<ItemGroup>
+		<Content Include="Resources\Images\loading.gif">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+</Project>
