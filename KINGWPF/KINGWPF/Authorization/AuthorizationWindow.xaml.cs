@@ -49,7 +49,7 @@ namespace KINGWPF.Authorization
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //await Loader.LoadAsync(Dispatcher, AllContent, LoadingMediaElement, async () => { });
+            await Loader.LoadAsync(Dispatcher, AllContent, LoadingMediaElement, async () => { });
         }
     }
 }

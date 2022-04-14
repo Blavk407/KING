@@ -16,7 +16,7 @@
         Icon="\Resources\Images\icon.png" Loaded="Window_Loaded">
     <Border x:Name="WindowBorder" MouseLeftButtonDown="WindowBorder_MouseLeftButtonDown" Style="{StaticResource WindowBorder}">
         <Grid>
-            <MediaElement Panel.ZIndex="2" x:Name="LoadingMediaElement" Source="\Resources\Images\loading.gif" HorizontalAlignment="Center" VerticalAlignment="Center" LoadedBehavior="Play" Visibility="Hidden"/>
+            <MediaElement Panel.ZIndex="2" x:Name="LoadingMediaElement" Source="D:\WS\EGS\KINGWPF\KINGWPF\Resources\Images\loading.gif" HorizontalAlignment="Center" VerticalAlignment="Center" LoadedBehavior="Manual" Visibility="Hidden"/>
             <Grid x:Name="AllContent">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="5*"/>

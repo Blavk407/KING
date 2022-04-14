@@ -13,9 +13,10 @@ namespace KINGWPF.Classes
     {
         public static async Task LoadAsync(Dispatcher dispatcher,Grid AllContentGrid, MediaElement LoadingMediaElement,Func<Task> asyncFunc)
         {
+            dispatcher.Invoke(() => LoadingMediaElement.Visibility = Visibility.Visible);
             dispatcher.Invoke(() => AllContentGrid.Visibility = Visibility.Hidden);
             dispatcher.Invoke(() => { LoadingMediaElement.Position = TimeSpan.FromTicks(1); LoadingMediaElement.Play(); LoadingMediaElement.Visibility = Visibility.Visible; });
-            await Task.Delay(5000);
+            await Task.Delay(2000);
             await asyncFunc();
             dispatcher.Invoke(() => AllContentGrid.Visibility = Visibility.Visible);
             dispatcher.Invoke(() => { LoadingMediaElement.Stop(); LoadingMediaElement.Visibility = Visibility.Hidden; });
