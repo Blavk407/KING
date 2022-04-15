@@ -28,5 +28,29 @@ namespace KINGWPF.Authorization
         {
             DragMove();
         }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void PasswordRepeatPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            BindInputPasBoxWithTextBox(PasswordRepeatPasswordBox, PasswordRepeatTextBox);
+        }
+
+        private void BindInputPasBoxWithTextBox(PasswordBox passwordBox, TextBox textBox)
+        {
+            textBox.Text = passwordBox.Password;
+            if (passwordBox.Password != string.Empty)
+                textBox.Visibility = Visibility.Hidden;
+            else
+                textBox.Visibility = Visibility.Visible;
+        }
+
+        private void PasswordPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            BindInputPasBoxWithTextBox(PasswordPasswordBox, PasswordTextBox);
+        }
     }
 }

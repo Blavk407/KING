@@ -16,10 +16,12 @@ namespace KINGWPF.Classes
             dispatcher.Invoke(() => LoadingMediaElement.Visibility = Visibility.Visible);
             dispatcher.Invoke(() => AllContentGrid.Visibility = Visibility.Hidden);
             dispatcher.Invoke(() => { LoadingMediaElement.Position = TimeSpan.FromTicks(1); LoadingMediaElement.Play(); LoadingMediaElement.Visibility = Visibility.Visible; });
-            await Task.Delay(2000);
+            await Task.Delay(1000);
             await asyncFunc();
             dispatcher.Invoke(() => AllContentGrid.Visibility = Visibility.Visible);
             dispatcher.Invoke(() => { LoadingMediaElement.Stop(); LoadingMediaElement.Visibility = Visibility.Hidden; });
         }
+
+
     }
 }

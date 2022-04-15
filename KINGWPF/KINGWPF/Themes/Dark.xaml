@@ -1,32 +1,48 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Style TargetType="TextBox">
+    <Style TargetType="{x:Type TextBox}" x:Key="TextBox">
         <Setter Property="Foreground" Value="LightGray"></Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">
-                    <Grid>
-                        <Border x:Name="border"
-                                    Background="Transparent">
-                            <ScrollViewer x:Name="PART_ContentHost"
-                                              Focusable="false"
-                                              HorizontalScrollBarVisibility="Hidden"
-                                              VerticalScrollBarVisibility="Hidden"/>
-                        </Border>
-                        <Separator x:Name="separator" Margin="0,25,0,0"></Separator>
-                    </Grid>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="Foreground" Value="LightGray" />
-                            <Setter Property="FontWeight" Value="Bold" />
-                        </Trigger>
-                        <Trigger Property="IsFocused" Value="true">
-                            <Setter Property="Foreground" Value="White" />
-                        </Trigger>
-                    </ControlTemplate.Triggers>
+                    <Border Background="Transparent" HorizontalAlignment="Stretch">
+                        <Grid>
+                            <TextBox Text="{TemplateBinding Text}"
+                                     BorderThickness="0"
+                                     Background="Transparent"
+                                     Foreground="#CFCFCF"
+                                     x:Name="tb"/>
+                            <TextBlock IsHitTestVisible="False"
+                                       Text="{TemplateBinding Uid}"
+                                       Margin="10,0,0,0"
+                                       FontSize="16"
+                                       Foreground="DarkGray">
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=tb}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                        <Setter Property="Visibility" Value="Hidden"/>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                            <Separator x:Name="separator" Margin="0,25,0,0"></Separator>
+                        </Grid>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Foreground" Value="LightGray" />
+                <Setter Property="FontWeight" Value="Bold" />
+            </Trigger>
+            <Trigger Property="IsFocused" Value="true">
+                <Setter Property="Foreground" Value="White" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <Style TargetType="PasswordBox">
@@ -108,7 +124,7 @@
                 <Setter Property="Foreground" Value="#E59400"/>
                 <Setter Property="FontStretch" Value="Medium"/>
             </Trigger>
-            <EventTrigger RoutedEvent="MouseLeftButtonDown">
+            <EventTrigger RoutedEvent="MouseRightButtonDown">
                 <BeginStoryboard>
                     <Storyboard>
                         <ColorAnimation From="White" To="OrangeRed" Duration="0:0:1" AutoReverse="True" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)"/>
@@ -130,6 +146,37 @@
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Bd" Property="Background" Value="Red"/>
                             <Setter TargetName="Pt" Property="Stroke" Value="White"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ToggleButton}">
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Content" Value="Off"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Border x:Name="B1" Background="LightGray"
+                                CornerRadius="10" Padding="3">
+                        <Border x:Name="B2" Background="Black"
+                                    Width="{TemplateBinding Height}"
+                                    CornerRadius="10" HorizontalAlignment="Left">
+                            <TextBlock x:Name="T1" Text="Off"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          TextAlignment="Center"/>
+                        </Border>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="B2" Property="HorizontalAlignment" Value="Right"/>
+                            <Setter TargetName="B1" Property="Background" Value="orange"/>
+                            <Setter TargetName="T1" Property="Text" Value="On"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

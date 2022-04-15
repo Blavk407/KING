@@ -12,10 +12,12 @@
     <None Remove="Resources\Images\auth\user.png" />
     <None Remove="Resources\Images\icon.png" />
     <None Remove="Resources\Images\loading.gif" />
+    <None Remove="Resources\Images\reg\newUser.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Resources\Fonts\" />
+    <Folder Include="DataBase\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,12 +33,15 @@
     <Resource Include="Resources\Images\icon.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\Images\reg\newUser.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     
   </ItemGroup>
 
 	<ItemGroup>
 		<Content Include="Resources\Images\loading.gif">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 	</ItemGroup>
 </Project>

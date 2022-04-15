@@ -41,15 +41,15 @@ namespace KINGWPF.Authorization
             Close();
         }
 
-        private async void RegistrationTextblock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            RegistrationWindow registrationWindow = new RegistrationWindow();
-            await Loader.LoadAsync(Dispatcher, AllContent, LoadingMediaElement, async () => registrationWindow.ShowDialog());
-        }
-
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
             await Loader.LoadAsync(Dispatcher, AllContent, LoadingMediaElement, async () => { });
+        }
+
+        private async void RegistrationTextblock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            RegistrationWindow registrationWindow = new RegistrationWindow();
+            await Loader.LoadAsync(Dispatcher, AllContent, LoadingMediaElement, async () => { Visibility = Visibility.Hidden; registrationWindow.ShowDialog(); Visibility = Visibility.Visible; });
         }
     }
 }

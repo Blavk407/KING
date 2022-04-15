@@ -16,7 +16,7 @@
         Icon="\Resources\Images\icon.png" Loaded="Window_Loaded">
     <Border x:Name="WindowBorder" MouseLeftButtonDown="WindowBorder_MouseLeftButtonDown" Style="{StaticResource WindowBorder}">
         <Grid>
-            <MediaElement Panel.ZIndex="2" x:Name="LoadingMediaElement" Source="D:\WS\EGS\KINGWPF\KINGWPF\Resources\Images\loading.gif" HorizontalAlignment="Center" VerticalAlignment="Center" LoadedBehavior="Manual" Visibility="Hidden"/>
+            <MediaElement Stretch="UniformToFill" Panel.ZIndex="2" x:Name="LoadingMediaElement" Source="D:\WS\EGS\KINGWPF\KINGWPF\Resources\Images\loading.gif" HorizontalAlignment="Center" VerticalAlignment="Center" LoadedBehavior="Manual" Visibility="Hidden"/>
             <Grid x:Name="AllContent">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="5*"/>
@@ -32,14 +32,14 @@
                 <StackPanel Grid.Row="1">
                     <StackPanel Orientation="Horizontal">
                         <Image Margin="35,10,0,10"  Source="\Resources\Images\auth\user.png" Height="50"/>
-                        <TextBox Margin="10,0,0,0" Height="30" Width="150"></TextBox>
+                        <TextBox Margin="10,0,0,0" Height="30" Width="150" Style="{DynamicResource TextBox}"></TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Image Margin="30,10,0,10" Source="\Resources\Images\auth\pass.png" Height="50"/>
                         <PasswordBox Margin="15,0,0,0" Height="30" Width="150" PasswordChar="♕"></PasswordBox>
                     </StackPanel>
                     <TextBlock FontSize="12" Foreground="Gray" HorizontalAlignment="Center">
-                    <TextBlock x:Name="RegistrationTextblock" Style="{StaticResource ClickTextBlock}" Cursor="Hand" MouseLeftButtonUp="RegistrationTextblock_MouseLeftButtonUp">Зарегистрироваться</TextBlock>
+                    <TextBlock x:Name="RegistrationTextblock" Style="{StaticResource ClickTextBlock}" Cursor="Hand" MouseLeftButtonDown="RegistrationTextblock_MouseLeftButtonDown">Зарегистрироваться</TextBlock>
                     <Run>|</Run>
                     <TextBlock x:Name="NewPasswordTextblock" Style="{StaticResource ClickTextBlock}" Cursor="Hand">Забыли пароль?</TextBlock>
                 </TextBlock>
